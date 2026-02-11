@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIIVACORE</title>
+    <style>
+        /* 1. Base Reset & Layout */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            color: #FFFFFF;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden; 
+        }
+
+        /* 2. Main Area Layout */
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 3. Shared Text Styling */
+        .countdown-text {
+            font-size: clamp(2rem, 8vw, 6rem); 
+            text-align: center;
+            margin: 0;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            text-decoration: none;
+            line-height: 1.1;
+        }
+
+        /* 4. Toggle Logic */
+        .button-view { display: none; cursor: pointer; transition: color 0.3s ease; }
+        .static-view { display: block; }
+        .is-button .button-view { display: block; }
+        .is-button .static-view { display: none; }
+        .button-view:hover { color: #dadada; }
+
+        /* 5. Compact Footer Styling */
+        footer {
+            padding-bottom: 4vh; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: clamp(1.2rem, 4vw, 2.2rem); 
+            margin-bottom: 0.1rem; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: clamp(1rem, 3vw, 2.5rem); 
+            margin-bottom: 0.3rem; 
+        }
+
+        .social-group { margin-bottom: 0; }
+
+        .footer-link {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: clamp(0.8rem, 2.5vw, 1.3rem); 
+            transition: color 0.2s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .footer-link:hover { color: #dadada; }
+
+        /* 6. Mobile-Specific: Balanced Centered Vertical Stack */
+        @media (max-width: 450px) {
+            .footer-title { margin-bottom: 1rem; }
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+            .social-group { margin-bottom: 0; }
+            .footer-link { text-align: center; width: 100%; }
+            .countdown-text { padding: 0 15px; }
+        }
+    </style>
+</head>
+<body class="is-button">
+
+    <div class="main-content">
+        <!-- Static Version -->
+        <p class="countdown-text static-view">NO SEX 3 IS OUT NOW!!!!</p>
+        
+        <!-- Updated Main Button -->
+        <a href="https://siivacore.bandcamp.com/album/abstinence" target="_blank" class="countdown-text button-view" rel="noopener noreferrer">
+            NO SEX 3 IS OUT NOW!!!!
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-title">SIIVACORE</div>
+        
+        <!-- Top Group (Same Tab) -->
+        <nav class="button-group">
+            <a href="https://siivacore.team" class="footer-link">ABOUT US</a>
+            <a href="https://siivacore.team" class="footer-link">OUR ALBUMS</a>
+        </nav>
+
+        <!-- Bottom Group (Social Buttons - Opens in New Tab) -->
+        <nav class="button-group social-group">
+            <a href="https://x.com" target="_blank" class="footer-link" rel="noopener noreferrer">TWITTER</a>
+            <a href="https://www.youtube.com" target="_blank" class="footer-link" rel="noopener noreferrer">YOUTUBE</a>
+            <a href="https://siivacore.bandcamp.com" target="_blank" class="footer-link" rel="noopener noreferrer">BANDCAMP</a>
+        </nav>
+    </footer>
+
+</body>
+</html>
