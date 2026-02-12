@@ -1,0 +1,156 @@
+/* style.css */
+body, html {
+    margin: 0; 
+    padding: 0; 
+    width: 100%;
+    /* Ensures the body doesn't conflict with wrapper height */
+    height: auto; 
+    font-family: Arial, Helvetica, sans-serif; 
+    color: #FFFFFF;
+}
+
+/* Background Engine */
+body::before {
+    content: ""; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: var(--bg-gradient); 
+    background-size: 200% 200%;
+    animation: gradientMove var(--bg-speed, 15s) linear infinite; 
+    z-index: -1;
+}
+
+@keyframes gradientMove { 
+    0%, 100% { background-position: 0% 50%; } 
+    50% { background-position: 100% 50%; } 
+}
+
+/* Page Layout */
+.page-wrapper {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    min-height: 100vh; /* Keeps footer low on short pages */
+    padding: 5vh 20px 0; /* Top padding for all pages */
+    box-sizing: border-box;
+}
+
+/* Header */
+.header-button {
+    color: #FFFFFF; 
+    font-size: 70px; 
+    text-transform: uppercase;
+    text-decoration: none; 
+    margin-bottom: 5vh; 
+    transition: color 0.3s ease;
+    font-weight: normal;
+}
+
+/* Content Layout */
+.main-content { 
+    display: flex; 
+    justify-content: center; 
+    gap: 5vw; 
+    width: 100%; 
+    max-width: 1100px; 
+    flex: 1; /* Pushes footer down */
+}
+
+/* Landing Page Logic */
+.main-content-landing {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown-text {
+    font-size: clamp(2rem, 8vw, 6rem); 
+    text-align: center;
+    text-transform: uppercase; 
+    text-decoration: none; 
+    color: #FFFFFF; 
+    line-height: 1.1;
+    font-weight: normal;
+}
+
+.button-view { display: none; cursor: pointer; }
+.is-button .button-view { display: block; }
+.is-button .static-view { display: none; }
+
+/* Album Styling */
+.album-cover { 
+    width: 450px; 
+    height: 450px; 
+    border: 12px solid #FFFFFF; 
+    flex-shrink: 0;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); 
+}
+
+.album-cover img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+}
+
+.content-block { 
+    width: 480px; 
+    text-transform: uppercase; 
+    flex-shrink: 0; 
+}
+
+/* Typography Weight Reset */
+.pillar-header { font-size: clamp(3.5rem, 6vw, 5.5rem); text-align: center; margin: 0; font-weight: normal; }
+.intro-text, .outro-text, .track-item { font-size: clamp(0.8rem, 2.5vw, 1.1rem); text-align: center; margin: 2rem 0; font-weight: normal; }
+.track-item { margin: 0.6rem 0; }
+
+/* Universal Footer */
+footer { 
+    margin-top: 8vh; /* Fixed gap from content */
+    padding-bottom: 4vh; /* Precision gap from bottom of screen */
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+.footer-title {
+    font-size: clamp(1.2rem, 4vw, 2.2rem); 
+    margin-bottom: 0.1rem;
+    text-transform: uppercase; 
+    text-decoration: none; 
+    color: #FFFFFF; 
+    transition: color 0.2s ease;
+    font-weight: normal;
+}
+
+.button-group { display: flex; gap: clamp(1rem, 3vw, 2.5rem); margin-bottom: 0.3rem; }
+.social-group { margin-bottom: 0; }
+
+.footer-link {
+    color: #FFFFFF; 
+    text-decoration: none; 
+    font-size: clamp(0.8rem, 2.5vw, 1.3rem);
+    transition: color 0.2s ease; 
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.footer-link:hover, .footer-title:hover, .header-button:hover { color: #dadada; }
+
+/* Responsiveness */
+@media (max-width: 1100px) {
+    .main-content { flex-direction: column; align-items: center; }
+    .album-cover { width: 70%; max-width: 350px; height: auto; aspect-ratio: 1/1; border-width: 8px; }
+    .content-block { width: 95%; }
+}
+
+@media (max-width: 450px) {
+    .footer-title { margin-bottom: 1rem; }
+    .button-group { flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+}
