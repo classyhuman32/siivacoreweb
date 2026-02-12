@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NO SEX - SIIVACORE</title>
+    <title>SIIVACORE - NO SEX</title>
     
     <link rel="icon" type="image/x-icon" href="../img/no-sex.ico">
     
     <link rel="stylesheet" href="../style.css">
+
     <style>
-        /* Seamless loop: Start and End colors are identical */
         :root { 
+            /* Background Logic */
             --bg-gradient: linear-gradient(90deg, #4e657c, #267dcb 50%, #4e657c 100%); 
             --bg-speed: 15s; 
+
+            /* Button Color Data - Plugged into style.css templates */
+            --btn-color: #2E2E2E; 
+            --btn-hover: #5C5C5C;
         }
         
         body, html {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
             height: auto; 
         }
 
@@ -33,32 +35,9 @@
             to { background-position: 200% 0%; }
         }
 
-        .page-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 5vh 20px 0;
-            box-sizing: border-box;
-        }
-
-        .album-cover {
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-        }
-        
+        /* Typography Reset */
         .pillar-header, .intro-text, .track-item, .outro-text {
             font-weight: normal;
-        }
-
-        /* Precision Footer - synced with Index baseline */
-        footer {
-            margin-top: 8vh;
-            padding-bottom: 4vh;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
         }
     </style>
 </head>
@@ -67,7 +46,18 @@
         <a href="../index.html" class="header-button">SIIVACORE</a>
         
         <div class="main-content">
-            <div class="album-cover"><img src="../img/no-sex.png" alt="NO SEX"></div>
+            <div class="image-column">
+                <div class="album-cover">
+                    <img src="../img/no-sex.png" alt="NO SEX">
+                </div>
+                
+                <a href="https://youtube.com/playlist?list=PLYhc7EmGeZuiSsvK-wbiW3KZ3kIuDCast&si=qUWiSOnz6FsZgAxZ" target="_blank" rel="noopener noreferrer" class="action-button">YOUTUBE</a>
+                <a href="https://siivacore.bandcamp.com/album/no-sex" target="_blank" rel="noopener noreferrer" class="action-button">BANDCAMP</a>
+                <a href="https://drive.google.com/file/d/1ZygX20HlYUyX9idUzM0NskO-jdhHvG45/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="action-button">WAV (DRIVE)</a>
+                <a href="#" class="action-button">FLAC (DRIVE)</a>
+                <a href="https://drive.google.com/file/d/1e3RMJZel7PhFRsKlH0fe7Ni-mzaqVNIr/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="action-button">MP3 (DRIVE)</a>
+            </div>
+
             <div class="content-block">
                 <h2 class="pillar-header">NO SEX</h2>
                 <p class="intro-text">WELCOME TO NO SEX. IN THIS ALBUM, WE DO NOT FUCK. THE ONLY THING GETTING FUCKED IS YOUR EARS BECAUSE OF HOW FUCKING BANGING THESE TRACKS ARE. WE GOT 17 TRACKS, AND TO JUST NAME A FEW:</p>
@@ -108,5 +98,4 @@
         </footer>
     </div>
 </body>
-
 </html>
