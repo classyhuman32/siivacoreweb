@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIIVACORE</title>
+    
+    <link rel="icon" type="image/x-icon" href="img/siivacore.ico">
+    
     <style>
         /* 1. Base Reset & Layout */
         body, html {
@@ -19,7 +22,7 @@
             overflow: hidden; 
         }
 
-        /* 2. Main Area Layout */
+        /* 2. Main Content Area */
         .main-content {
             flex: 1;
             display: flex;
@@ -27,7 +30,6 @@
             align-items: center;
         }
 
-        /* 3. Shared Text Styling */
         .countdown-text {
             font-size: clamp(2rem, 8vw, 6rem); 
             text-align: center;
@@ -36,30 +38,39 @@
             color: #FFFFFF;
             text-decoration: none;
             line-height: 1.1;
+            font-weight: normal;
         }
 
-        /* 4. Toggle Logic */
+        /* 3. Toggle Logic (Button vs Static) */
         .button-view { display: none; cursor: pointer; transition: color 0.3s ease; }
         .static-view { display: block; }
         .is-button .button-view { display: block; }
         .is-button .static-view { display: none; }
         .button-view:hover { color: #dadada; }
 
-        /* 5. Compact Footer Styling */
+        /* 4. Footer Styling - SYNCED LOGIC */
         footer {
             padding-bottom: 4vh; 
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
+            flex-shrink: 0;
         }
 
         .footer-title {
+            /* Matches the other pages exactly */
             font-size: clamp(1.2rem, 4vw, 2.2rem); 
             margin-bottom: 0.1rem; 
-            letter-spacing: 1px;
+            /* Removed letter-spacing to fix the size issue */
             text-transform: uppercase;
+            text-decoration: none;
+            color: #FFFFFF; 
+            transition: color 0.2s ease;
+            font-weight: normal;
         }
+
+        .footer-title:hover { color: #dadada; }
 
         .button-group {
             display: flex;
@@ -77,11 +88,12 @@
             transition: color 0.2s ease;
             cursor: pointer;
             text-transform: uppercase;
+            font-weight: normal;
         }
 
         .footer-link:hover { color: #dadada; }
 
-        /* 6. Mobile-Specific: Balanced Centered Vertical Stack */
+        /* 5. Mobile Adjustments */
         @media (max-width: 450px) {
             .footer-title { margin-bottom: 1rem; }
             .button-group {
@@ -99,29 +111,27 @@
 <body class="is-button">
 
     <div class="main-content">
-        <!-- Static Version -->
         <p class="countdown-text static-view">NO SEX 3 IS OUT NOW!!!!</p>
-        
-        <!-- Updated Main Button -->
-        <a href="https://siivacore.bandcamp.com/album/abstinence" target="_blank" class="countdown-text button-view" rel="noopener noreferrer">
+        <a href="https://siivacore.bandcamp.com/album/abstinence" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="countdown-text button-view">
             NO SEX 3 IS OUT NOW!!!!
         </a>
     </div>
 
     <footer>
-        <div class="footer-title">SIIVACORE</div>
+        <a href="index.html" class="footer-title">SIIVACORE</a>
         
-        <!-- Top Group (Same Tab) -->
         <nav class="button-group">
-            <a href="https://siivacore.team" class="footer-link">ABOUT US</a>
-            <a href="https://siivacore.team" class="footer-link">OUR ALBUMS</a>
+            <a href="about.html" class="footer-link">ABOUT US</a>
+            <a href="albums.html" class="footer-link">OUR ALBUMS</a>
         </nav>
 
-        <!-- Bottom Group (Social Buttons - Opens in New Tab) -->
         <nav class="button-group social-group">
-            <a href="https://x.com" target="_blank" class="footer-link" rel="noopener noreferrer">TWITTER</a>
-            <a href="https://www.youtube.com" target="_blank" class="footer-link" rel="noopener noreferrer">YOUTUBE</a>
-            <a href="https://siivacore.bandcamp.com" target="_blank" class="footer-link" rel="noopener noreferrer">BANDCAMP</a>
+            <a href="https://x.com/SllVACORE" target="_blank" rel="noopener noreferrer" class="footer-link">TWITTER</a>
+            <a href="https://www.youtube.com/@SIIVACORE" target="_blank" rel="noopener noreferrer" class="footer-link">YOUTUBE</a>
+            <a href="https://siivacore.bandcamp.com" target="_blank" rel="noopener noreferrer" class="footer-link">BANDCAMP</a>
         </nav>
     </footer>
 
