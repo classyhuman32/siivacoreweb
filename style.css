@@ -3,7 +3,6 @@ body, html {
     margin: 0; 
     padding: 0; 
     width: 100%;
-    /* Ensures the body doesn't conflict with wrapper height */
     height: auto; 
     font-family: Arial, Helvetica, sans-serif; 
     color: #FFFFFF;
@@ -33,8 +32,8 @@ body::before {
     display: flex; 
     flex-direction: column; 
     align-items: center;
-    min-height: 100vh; /* Keeps footer low on short pages */
-    padding: 5vh 20px 0; /* Top padding for all pages */
+    min-height: 100vh;
+    padding: 5vh 20px 0; 
     box-sizing: border-box;
 }
 
@@ -56,10 +55,73 @@ body::before {
     gap: 5vw; 
     width: 100%; 
     max-width: 1100px; 
-    flex: 1; /* Pushes footer down */
+    flex: 1;
 }
 
-/* Landing Page Logic */
+/* --- ALBUM PAGE LOGIC --- */
+.image-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* INCREASED GAP: Controls the vertical space BETWEEN each button */
+    gap: 35px; 
+}
+
+.album-cover { 
+    width: 450px; 
+    height: 450px; 
+    border: 12px solid #FFFFFF; 
+    flex-shrink: 0;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); 
+    /* Keeps the group pushed down from the image */
+    margin-bottom: 60px; 
+    order: 1;
+}
+
+.album-cover img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+}
+
+.action-button {
+    display: block;
+    width: 200px;
+    background-color: var(--btn-color, #2E2E2E);
+    color: #FFFFFF !important;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 0;
+    border-radius: 12px;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    transition: all 0.3s x ease;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    order: 2;
+}
+
+.action-button:hover {
+    background-color: var(--btn-hover, #5C5C5C);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* --- TEXT CONTENT LOGIC --- */
+.content-block { 
+    width: 480px; 
+    text-transform: uppercase; 
+    flex-shrink: 0; 
+}
+
+.pillar-header { font-size: clamp(3.5rem, 6vw, 5.5rem); text-align: center; margin: 0; font-weight: normal; }
+.intro-text, .outro-text, .track-item { font-size: clamp(0.8rem, 2.5vw, 1.1rem); text-align: center; margin: 2rem 0; font-weight: normal; }
+.track-item { margin: 0.6rem 0; }
+
+/* --- LANDING PAGE LOGIC --- */
 .main-content-landing {
     flex: 1;
     display: flex;
@@ -81,37 +143,10 @@ body::before {
 .is-button .button-view { display: block; }
 .is-button .static-view { display: none; }
 
-/* Album Styling */
-.album-cover { 
-    width: 450px; 
-    height: 450px; 
-    border: 12px solid #FFFFFF; 
-    flex-shrink: 0;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6); 
-}
-
-.album-cover img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    display: block; 
-}
-
-.content-block { 
-    width: 480px; 
-    text-transform: uppercase; 
-    flex-shrink: 0; 
-}
-
-/* Typography Weight Reset */
-.pillar-header { font-size: clamp(3.5rem, 6vw, 5.5rem); text-align: center; margin: 0; font-weight: normal; }
-.intro-text, .outro-text, .track-item { font-size: clamp(0.8rem, 2.5vw, 1.1rem); text-align: center; margin: 2rem 0; font-weight: normal; }
-.track-item { margin: 0.6rem 0; }
-
-/* Universal Footer */
+/* --- UNIVERSAL FOOTER --- */
 footer { 
-    margin-top: 8vh; /* Fixed gap from content */
-    padding-bottom: 4vh; /* Precision gap from bottom of screen */
+    margin-top: 8vh;
+    padding-bottom: 4vh; 
     width: 100%; 
     display: flex; 
     flex-direction: column; 
@@ -143,11 +178,30 @@ footer {
 
 .footer-link:hover, .footer-title:hover, .header-button:hover { color: #dadada; }
 
-/* Responsiveness */
+/* --- RESPONSIVENESS --- */
 @media (max-width: 1100px) {
     .main-content { flex-direction: column; align-items: center; }
-    .album-cover { width: 70%; max-width: 350px; height: auto; aspect-ratio: 1/1; border-width: 8px; }
-    .content-block { width: 95%; }
+    
+    .image-column { display: contents; }
+    
+    .album-cover { 
+        order: -1; 
+        width: 70%; 
+        max-width: 350px; 
+        height: auto; 
+        aspect-ratio: 1/1; 
+        border-width: 8px; 
+        margin-bottom: 2rem; 
+    }
+    
+    .content-block { order: 0; width: 95%; }
+    
+    .action-button { 
+        order: 1; 
+        margin-bottom: 12px; 
+        width: 80%; 
+        max-width: 250px; 
+    }
 }
 
 @media (max-width: 450px) {
